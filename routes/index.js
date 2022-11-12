@@ -3,7 +3,7 @@ const { getData } = require("../data/foods")
 
 const constructorMethod = (app) => {
   app.get("/", async(req, res) => {
-    res.render("foods/expdate", {expdates: await getData(), title: "Food Storage"});
+    res.render("foods/expdates", {categories: await getData(), title: "Food Expiration Dates"});
   });
   app.use("*", (req, res) => {
     res.status(404).json({ error: "Not found" });
