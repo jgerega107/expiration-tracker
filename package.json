@@ -1,13 +1,13 @@
 {
-  "name": "cs-546-lab-8",
+  "name": "expiration-tracker",
   "version": "1.0.0",
-  "description": "Jacob Gerega's lab8",
+  "description": "Concode hackathon submission",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Jacob Gerega 10441220",
+  "author": "Christine Tsai, Jacob Gerega",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",

@@ -1,5 +1,3 @@
-const searchShowRoutes = require("./searchShowRoutes");
-const getShowRoutes = require("./getShowRoutes");
 const path = require("path");
 
 const constructorMethod = (app) => {
