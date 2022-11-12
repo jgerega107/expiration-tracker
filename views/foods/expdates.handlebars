@@ -22,11 +22,11 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <ul>
+              <ul class="list-group">
                 {{#each this.Products}}
-                  <li>
+                  <li  class="list-group-item">
                     {{this.2.Name}}
-                    {{this.3.Name_subtitle}}
+                    {{this.3.Name_subtitle}} - {{this.21.DOP_Refrigerate_Max}} {{this.22.DOP_Refrigerate_Metric}}
                   </li>
                 {{/each}}
               </ul>
