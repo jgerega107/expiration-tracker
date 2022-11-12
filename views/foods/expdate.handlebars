@@ -3,9 +3,12 @@
   <section class="lists">
     <ul>
       {{#each expdates}}
+      <h2>{{this.Category}}</h2>
+      {{#each expdates.Products}}
         <li>
           <p>{{this.[2].Name}}</p>
         </li>
+      {{/each}}
       {{/each}}
     </ul>
   </section>

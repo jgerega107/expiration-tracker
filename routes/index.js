@@ -1,9 +1,9 @@
 const path = require("path");
-const { getFoods } = require("../data/foods")
+const { getProducts, getData, getCategories } = require("../data/foods")
 
 const constructorMethod = (app) => {
   app.get("/", async(req, res) => {
-    res.render("foods/expdate", {expdates: await getFoods(), title: "test string"});
+    res.render("foods/expdate", {expdates: await getData(), title: "Food Storage"});
   });
   app.use("*", (req, res) => {
     res.status(404).json({ error: "Not found" });
