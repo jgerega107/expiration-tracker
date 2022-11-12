@@ -1,5 +1,5 @@
 const path = require("path");
-const { getProducts, getData, getCategories } = require("../data/foods")
+const { getData } = require("../data/foods")
 
 const constructorMethod = (app) => {
   app.get("/", async(req, res) => {

@@ -28,4 +28,4 @@ async function getData() {
   return dict;
 }
 
-module.exports = { getCategories, getProducts, getData };
+module.exports = { getData };
