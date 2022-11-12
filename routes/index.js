@@ -1,7 +1,9 @@
 const path = require("path");
+const { getFoods } = require("../data/foods")
 
 const constructorMethod = (app) => {
-  app.use("/expdates/lmeats", (req, res) => {
+  app.use("/expdates/lmeats", async (req, res) => {
+    await getFoods()
     res.render("foods/expdate", {title: "Lunch Meats", expdates: ["opened package: 3-5 days in refridgerator, 1-2 months in freezer", "unopened package: 2 weeks in refridgerator, 1-2 months in freezer"]})
   })
   app.get("/", (req, res) => {
