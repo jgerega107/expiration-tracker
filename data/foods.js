@@ -15,10 +15,14 @@ async function getData() {
   let dict = []
   let categories = await getCategories();
   let products = await getProducts();
-  for( let i = 0; i < categories.length; i++ ) {
+  for (let i = 0; i < categories.length; i++) {
     let categoryID = categories[i][0]["ID"];
-    let productFromCategory = products.filter( ( p ) => { return p[1]["Category_ID"] == categoryID } );
-    dict.push({"Category": categories[i][1]["Category_Name"], "Products": productFromCategory});
+    let productFromCategory = products.filter((p) => { return p[1]["Category_ID"] == categoryID });
+    let categoryName = categories[i][1]["Category_Name"]
+    if (categories[i][2]["Subcategory_Name"] != null) {
+      categoryName = categories[i][2]["Subcategory_Name"]
+    }
+    dict.push({ "Category": categoryName, "Products": productFromCategory });
   }
 
   return dict;
