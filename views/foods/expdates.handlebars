@@ -1,42 +1,56 @@
 <article>
   <section class="lists">
     <div class="accordion" id="accordionExample">
-      {{#each categories}}
+      {{#each categories as |category categoryIndex|}}
         <div class="accordion-item">
-          <h2 class="accordion-header" id="heading{{@index}}">
+          <h2 class="accordion-header" id="heading{{categoryIndex}}">
             <button
-              class="accordion-button collapsed" 
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapse{{@index}}"
+              data-bs-target="#collapse{{categoryIndex}}"
               aria-expanded="false"
-              aria-controls="collapse{{@index}}"
+              aria-controls="collapse{{categoryIndex}}"
             >
-              {{this.Category}}
+              {{category.Category}}
             </button>
           </h2>
           <div
-            id="collapse{{@index}}"
+            id="collapse{{categoryIndex}}"
             class="accordion-collapse collapse"
-            aria-labelledby="heading{{@index}}"
+            aria-labelledby="heading{{categoryIndex}}"
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <ul class="list-group">
-                {{#each this.Products}}
-                  <li  class="list-group-item">
-                    <strong>{{this.2.Name}}
-                    {{this.3.Name_subtitle}} </strong> <br> 
+              <ul class="list-group" id="list-group{{categoryIndex}}">
+                {{#each category.Products}}
+                  <li class="list-group-item">
+                    <button
+                      id="cartButton{{categoryIndex}}-{{@index}}"
+                      class="btn btn-outline-success"
+                    ><strong>{{this.2.Name}} {{this.3.Name_subtitle}}
+                      </strong></button>
+                    <br />
                     {{#if this.20.DOP_Refrigerate_Min}}
-                    refrigeration period: {{this.20.DOP_Refrigerate_Min}} - {{this.21.DOP_Refrigerate_Max}} {{this.22.DOP_Refrigerate_Metric}} <br>
+                      Refrigeration Period:
+                      {{this.20.DOP_Refrigerate_Min}}
+                      -
+                      {{this.21.DOP_Refrigerate_Max}}
+                      {{this.22.DOP_Refrigerate_Metric}}
+                      <br />
                     {{/if}}
                     {{#if this.34.DOP_Freeze_Min}}
-                    freeze period: {{this.34.DOP_Freeze_Min}} - {{this.35.DOP_Freeze_Max}} {{this.36.DOP_Freeze_Metric}} <br>
+                      Freeze Period:
+                      {{this.34.DOP_Freeze_Min}}
+                      -
+                      {{this.35.DOP_Freeze_Max}}
+                      {{this.36.DOP_Freeze_Metric}}
+                      <br />
                     {{/if}}
                     {{#if this.8.Pantry_tips}}
-                    {{this.8.Pantry_tips}} <br>
+                      {{this.8.Pantry_tips}}
+                      <br />
                     {{/if}}
-
                   </li>
                 {{/each}}
               </ul>
