@@ -7,6 +7,9 @@
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
     const cartButton = $("#recipeSearch");
+    $(document).on("click", "#recipeSearch", () => { 
+      window.location = window.location.replace("recipes", JSON.stringify({ingredients: Array.from(cart).join(', ') }))
+    });
     const tooltip = bootstrap.Tooltip.getInstance('#recipeSearch')
     cartButton.attr("hidden", true);
     let cart = new Set();
