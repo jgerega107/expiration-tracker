@@ -1,9 +1,20 @@
 <article>
-  <ul>
-    {{#each recipes}}
-      <li>
-        {{this.title}}
-      </li>
-    {{/each}}
-  </ul>
+  <div class="container text-center">
+    <div class="row">
+      {{#each recipes}}
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img src={{this.image}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">Missing ingredients:{{#each this.missedIngredients}}
+              {{this.original}}
+              {{/each}}
+            </p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </article>

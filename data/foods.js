@@ -1,6 +1,6 @@
 const axios = require("axios");
 const url = `https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json`;
-const recipe_url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=`;
+const recipe_url = `https://api.spoonacular.com/recipes/findByIngredients?number=9&ingredients=`;
 const apiKey = `b11f60f6cb344d709d4fe0d11ab93764`;
 
 async function getCategories() {
