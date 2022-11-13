@@ -8,7 +8,7 @@
       );
     const cartButton = $("#recipeSearch");
     $(document).on("click", "#recipeSearch", () => { 
-      window.location = window.location.replace("recipes", JSON.stringify({ingredients: Array.from(cart).join(', ') }))
+      location.replace(`/recipes/${Array.from(cart).join(',')}`)
     });
     const tooltip = bootstrap.Tooltip.getInstance('#recipeSearch')
     cartButton.attr("hidden", true);
