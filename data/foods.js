@@ -1,19 +1,24 @@
 const axios = require("axios");
-const url = `https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json`;
-const recipe_url = `https://api.spoonacular.com/recipes/findByIngredients?number=9&ingredients=`;
-const apiKey = `b11f60f6cb344d709d4fe0d11ab93764`;
+const spoonacular_apikey = require("../config.json").spoonacular_api
+const usda_url = `https://www.fsis.usda.gov/shared/data/EN/foodkeeper.json`;
+const spoonacular_url = `https://api.spoonacular.com/recipes/findByIngredients?number=9&ingredients=`;
 
 async function getCategories() {
-  const { data } = await axios.get(url);
+  const { data } = await axios.get(usda_url);
   return data["sheets"][1]["data"];
 }
 
 async function getProducts() {
-  const { data } = await axios.get(url);
+  const { data } = await axios.get(usda_url);
   return data["sheets"][2]["data"];
 }
 
-async function getData() {
+async function getRecipes( ingredients ) {
+  const { data } = await axios.get(`${spoonacular_url}${ingredients}&apiKey=${spoonacular_apikey}`);
+  return data;
+}
+
+async function getCategoryInfo() {
   let dict = []
   let categories = await getCategories();
   let products = await getProducts();
@@ -30,9 +35,4 @@ async function getData() {
   return dict;
 }
 
-async function getRecipes( ingredients ) {
-  const { data } = await axios.get(`${recipe_url}${ingredients}&apiKey=${apiKey}`);
-  return data;
-}
-
-module.exports = { getData, getRecipes };
+module.exports = { getCategoryInfo, getRecipes };
