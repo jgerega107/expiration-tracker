@@ -1,5 +1,5 @@
 {
-  "name": "expiration-tracker",
+  "name": "food-waste-manager",
   "version": "1.0.0",
   "description": "Concode hackathon submission",
   "main": "index.js",
